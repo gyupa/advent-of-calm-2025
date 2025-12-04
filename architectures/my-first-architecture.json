@@ -1,0 +1,22 @@
+{
+    "$schema": "https://calm.finos.org/release/1.1/meta/calm.json",
+    "unique-id": "customer-auth-system",
+    "name": "Customer Authentication System",
+    "description": "Core authentication service that validates user credentials and manages session tokens for secure customer access",
+    "metadata": [
+        {
+            "version": "1.0.0",
+            "created": "2025-12-04",
+            "owner": "Security Team"
+        }
+    ],
+    "nodes": [
+        {
+            "unique-id": "auth-service",
+            "node-type": "service",
+            "name": "Authentication Service",
+            "description": "Validates user credentials and manages session tokens for customer authentication and authorization"
+        }
+    ],
+    "relationships": []
+}
