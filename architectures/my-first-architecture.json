@@ -1,22 +1,85 @@
 {
-    "$schema": "https://calm.finos.org/release/1.1/meta/calm.json",
-    "unique-id": "customer-auth-system",
-    "name": "Customer Authentication System",
-    "description": "Core authentication service that validates user credentials and manages session tokens for secure customer access",
-    "metadata": [
-        {
-            "version": "1.0.0",
-            "created": "2025-12-04",
-            "owner": "Security Team"
+  "$schema": "https://calm.finos.org/release/1.1/meta/calm.json",
+  "unique-id": "customer-auth-system",
+  "name": "Customer Authentication System",
+  "description": "Core authentication service that validates user credentials and manages session tokens for secure customer access",
+  "metadata": [
+    {
+      "version": "1.0.0",
+      "created": "2025-12-04",
+      "owner": "Security Team"
+    }
+  ],
+  "nodes": [
+    {
+      "unique-id": "auth-service",
+      "node-type": "service",
+      "name": "Authentication Service",
+      "description": "Validates user credentials and manages session tokens for customer authentication and authorization"
+    },
+    {
+      "unique-id": "user-database",
+      "node-type": "database",
+      "name": "User Database",
+      "description": "Stores customer account information and session tokens used by the Authentication Service",
+      "metadata": {
+        "engine": "PostgreSQL",
+        "tier": "primary"
+      }
+    },
+    {
+      "unique-id": "end-user",
+      "node-type": "actor",
+      "name": "End User",
+      "description": "A customer or end user who authenticates to the system and uses the service"
+    },
+    {
+      "unique-id": "authentication-system",
+      "node-type": "system",
+      "name": "Authentication System",
+      "description": "Logical system that contains the Authentication Service and its User Database"
+    }
+  ],
+  "relationships": [
+    {
+      "unique-id": "auth-service-connects-user-database",
+      "description": "Authentication Service reads and writes customer and session data in the User Database",
+      "relationship-type": {
+        "connects": {
+          "source": {
+            "node": "auth-service"
+          },
+          "destination": {
+            "node": "user-database"
+          }
         }
-    ],
-    "nodes": [
-        {
-            "unique-id": "auth-service",
-            "node-type": "service",
-            "name": "Authentication Service",
-            "description": "Validates user credentials and manages session tokens for customer authentication and authorization"
+      },
+      "protocol": "JDBC"
+    },
+    {
+      "unique-id": "end-user-interacts-auth-service",
+      "description": "End User interacts with the Authentication Service to sign in and manage sessions",
+      "relationship-type": {
+        "interacts": {
+          "actor": "end-user",
+          "nodes": [
+            "auth-service"
+          ]
         }
-    ],
-    "relationships": []
+      }
+    },
+    {
+      "unique-id": "authentication-system-composed-of-auth-service-and-user-database",
+      "description": "Authentication System is composed of the Authentication Service and the User Database",
+      "relationship-type": {
+        "composed-of": {
+          "container": "authentication-system",
+          "nodes": [
+            "auth-service",
+            "user-database"
+          ]
+        }
+      }
+    }
+  ]
 }
