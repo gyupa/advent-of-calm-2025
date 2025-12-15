@@ -3,19 +3,25 @@
   "unique-id": "customer-auth-system",
   "name": "Customer Authentication System",
   "description": "Core authentication service that validates user credentials and manages session tokens for secure customer access",
-  "metadata": [
-    {
-      "version": "1.0.0",
-      "created": "2025-12-04",
-      "owner": "Security Team"
-    }
-  ],
+  "metadata": {
+    "owner": "Security Team",
+    "version": "1.0.0",
+    "created": "2025-12-15",
+    "description": "A CALM architecture modeling a customer authentication system with service, database, and user interactions",
+    "tags": ["learning", "authentication", "demo"]
+  },
   "nodes": [
     {
       "unique-id": "auth-service",
       "node-type": "service",
       "name": "Authentication Service",
       "description": "Validates user credentials and manages session tokens for customer authentication and authorization",
+      "metadata": {
+        "tech-owner": "Security Team",
+        "repository": "https://github.com/company/auth-service",
+        "deployment-type": "container",
+        "sla-tier": "tier-1"
+      },
       "interfaces": [
         {
           "unique-id": "auth-service-api",
@@ -77,7 +83,12 @@
           }
         }
       },
-      "protocol": "JDBC"
+      "protocol": "JDBC",
+      "metadata": {
+        "latency-sla": "< 100ms",
+        "monitoring": true,
+        "circuit-breaker": true
+      }
     },
     {
       "unique-id": "end-user-interacts-auth-service",
