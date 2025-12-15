@@ -1,0 +1,25 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "host": {
+      "type": "string"
+    },
+    "port": {
+      "type": "number"
+    },
+    "basePath": {
+      "type": "string"
+    },
+    "authentication": {
+      "enum": ["OAuth2", "API-Key", "None"]
+    },
+    "description": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": ["host", "port", "basePath", "authentication"]
+}

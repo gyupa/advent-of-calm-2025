@@ -15,7 +15,19 @@
       "unique-id": "auth-service",
       "node-type": "service",
       "name": "Authentication Service",
-      "description": "Validates user credentials and manages session tokens for customer authentication and authorization"
+      "description": "Validates user credentials and manages session tokens for customer authentication and authorization",
+      "interfaces": [
+        {
+          "unique-id": "auth-service-api",
+          "definition-url": "https://my-enterprise/patterns/rest-api-interface.json",
+          "config": {
+            "host": "api.example.com",
+            "port": 443,
+            "basePath": "/api/v1",
+            "authentication": "OAuth2"
+          }
+        }
+      ]
     },
     {
       "unique-id": "user-database",
@@ -25,7 +37,16 @@
       "metadata": {
         "engine": "PostgreSQL",
         "tier": "primary"
-      }
+      },
+      "interfaces": [
+        {
+          "unique-id": "user-database-jdbc",
+          "protocol": "JDBC",
+          "host": "db.example.com",
+          "port": 5432,
+          "database": "auth_db"
+        }
+      ]
     },
     {
       "unique-id": "end-user",
@@ -47,10 +68,12 @@
       "relationship-type": {
         "connects": {
           "source": {
-            "node": "auth-service"
+            "node": "auth-service",
+            "interfaces": ["auth-service-api"]
           },
           "destination": {
-            "node": "user-database"
+            "node": "user-database",
+            "interfaces": ["user-database-jdbc"]
           }
         }
       },
