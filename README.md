@@ -12,6 +12,7 @@ This repository tracks my 24-day journey learning the Common Architecture Langua
 - [x] Day 6: Document with Metadata
 - [x] Day 7: Build Complete E-Commerce Architecture
 - [x] Day 8: Added controls and [documentation about them](docs/controls-guide.md)
+- [x] Day 9: Added flows and [documentated them](docs/flows-guide.md)
 
 ## Architectures
 
