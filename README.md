@@ -7,7 +7,7 @@ This repository tracks my 24-day journey learning the Common Architecture Langua
 - [x] Day 1: Install CALM CLI and Initialize Repository
 - [x] Day 2: Create Your First Node
 - [x] Day 3: Connect Nodes with Relationships
-...
+- [x] Day 4: Install CALM VSCode Extension
 
 ## Architectures
 
