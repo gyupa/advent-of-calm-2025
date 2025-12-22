@@ -13,6 +13,7 @@ This repository tracks my 24-day journey learning the Common Architecture Langua
 - [x] Day 7: Build Complete E-Commerce Architecture
 - [x] Day 8: Added controls and [documentation about them](docs/controls-guide.md)
 - [x] Day 9: Added flows and [documentated them](docs/flows-guide.md)
+- [x] Day 10: Added [ADR-0001](docs\adr\0001-use-message-queue-for-async-processing.md) and [ADR-0002](docs\adr\0002-use-oauth2-for-api-authentication.md) and linked them to the architecture
 
 ## Architectures
 
