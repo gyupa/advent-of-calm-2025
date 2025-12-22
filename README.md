@@ -16,6 +16,7 @@ This repository tracks my 24-day journey learning the Common Architecture Langua
 - [x] Day 10: Added [ADR-0001](docs\adr\0001-use-message-queue-for-async-processing.md) and [ADR-0002](docs\adr\0002-use-oauth2-for-api-authentication.md) and linked them to the architecture
 - [x] Day 11: Generate shareable documentation website
 - [x] Day 12: Create custom docs with calm-widgets
+- [x] Day 13: Create custom documentation with Handlebars templates
 
 ## Architectures
 
